@@ -75,8 +75,7 @@ const Contact = () => {
           </motion.div>
         </div>
         <motion.div initial = {{opacity : 0}} animate = {isInView ? {opacity : 1, transition : {duration : 1 , delay : 2}} : {opacity : 0}} className='flex items-center gap-x-[20px]'>
-            <a href='https://drive.google.com/file/d/1oOIULxLCYT3Rbpynj0wYIoQuMM0TK6_l/view?usp=sharing' target='blank' className=' flex items-center justify-center bg-blue-400 p-[10px] w-[140px] rounded-full split'>My Resume</a>
-            <a href='https://drive.google.com/file/d/1s2gkvlgVcc_c7aCVVXncvS3WqL-_VeeP/view?usp=sharing' target='blank' className='flex items-center justify-center bg-blue-400 p-[10px] w-[140px] rounded-full split'>My Cover Letter</a>
+            <a href='https://drive.google.com/file/d/15RV5tniXevS9v8zPusQxXWaL92YrBv1k/view?usp=drive_link' target='blank' className=' flex items-center justify-center bg-blue-400 p-[10px] w-[140px] rounded-full split'>My Resume</a>
         </motion.div>
         <p className='font-[300] pt-[40px] split'>© Copy Right all rights reserved 2025</p>
       </div>

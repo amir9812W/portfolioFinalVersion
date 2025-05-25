@@ -21,7 +21,6 @@ const variants = {
 
 const SingleVideo = ({image, description, link}) => {
 
-  console.log(image)
 
   return (
     <div className={`w-[400px] h-[200px] relative bg-cover bg-center rounded-2xl`} style={{backgroundImage: `url(${image})`}}>

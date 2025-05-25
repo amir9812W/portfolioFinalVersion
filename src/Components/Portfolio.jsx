@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import data1 from './PoData';
 import { animate, motion , useInView} from 'framer-motion';
+import { transition } from 'three/examples/jsm/tsl/display/TransitionNode.js';
 
 const SinglePortfolio = ({ image, bg, title, desc , link, git, state}) => {
   return (
@@ -63,7 +64,8 @@ const Portfolio = () => {
 
   let ref = useRef()
   let isInview = useInView(ref , {
-    margin : '100px'
+    margin : '100px',
+    once : true
   })
 
   return (
@@ -81,25 +83,26 @@ const Portfolio = () => {
       />
     ))}
     <div className='containerStats h-[100vh] flex flex-col justify-center items-center gap-y-[40px]' ref={ref}>
-      <div className='imgCon flex gap-x-[30px]'>
-        <motion.a initial = {{x : -700, scale : 0}} animate = {isInview ? {x : 0, scale : 1} : {x : -700 , scale : 0}} transition={{duration : 2, ease : "easeOut"}} href = {'https://www.duolingo.com/profile/hezareh'} target='_blank' className='bg-[url("./deutsch.png")] bg-center bg-contain rounded-2xl w-[300px] h-[300px]
-        transition-all duration-100 hover:bg-[url("./idkbro.jpg")]'>
+      <div className='imgCon flex gap-x-[30px] relative'>
+        <motion.a className='absolute top-[-40px]' animate = {isInview ? {opacity : 1, transition : {duration : 2, delay : 2}} : {opacity : 0}} href="https://www.duolingo.com/profile/hezareh" target='_blank'>Link to my duolingo profile</motion.a>
+        <motion.a initial = {{x : -700, scale : 0}} animate = {isInview ? {x : 0, scale : 1} : {x : -700 , scale : 0}} transition={{duration : 2, ease : "easeOut"}} href = {'https://www.duolingo.com/profile/hezareh'} target='_blank' className='bg-center bg-contain rounded-2xl w-[300px] h-[300px]
+        transition-all duration-100' style={{backgroundImage : 'url(./deutsch.png)'}}>
         </motion.a>
         <motion.a href = {'https://www.duolingo.com/profile/hezareh'} initial = {{x : 700, scale : 0}} animate = {isInview ? {x : 0, scale : 1} : {x : 700 , scale : 0}} 
-        transition={{duration : 2, ease : "easeOut"}} target='_blank' className='bg-[url("./englisch.png")] bg-center bg-contain rounded-2xl w-[300px] h-[300px]
-        transition-all duration-100 hover:bg-[url("./en.jpg")]'>
+        transition={{duration : 2, ease : "easeOut"}}  target='_blank' style={{backgroundImage : 'url(./englisch.png)'}} className='bg-center bg-contain rounded-2xl w-[300px] h-[300px]
+        transition-all duration-100 '>
         </motion.a>
       </div>
       <motion.div initial = {{y : 700}} animate = {isInview ? {y : 0, transition : {duration : 2}} : {y : 0}} className="monkey w-[800px] relative flex justify-center gap-x-[15%]  rounded-2xl pl-[40px] pr-[40px] pt-[50px] pb-[50px]">
           <p className='absolute top-[14px] left-[40px] font-[500]'>My Monkeytype status</p>
           <a href="https://monkeytype.com/profile/dunno-really112" target='_blank' className='absolute bottom-[20px] left-[40px] hover:opacity-50 transition-opacity duration-100'>link to my profile</a>
           <div className="stats relative">
-          <div class="w-[100px] h-[100%] flex flex-col items-center justify-center ">
-              <div class="opacity-40 font-[300]">10 words</div>
-              <div class="text-[50px] font-[500]">178</div>
-              <div class="text-[30px] opacity-75">100%</div>
+          <div className="w-[100px] h-[100%] flex flex-col items-center justify-center ">
+              <div className="opacity-40 font-[300]">10 words</div>
+              <div className="text-[50px] font-[500]">178</div>
+              <div className="text-[30px] opacity-75">100%</div>
             </div>
-            <div class="opacity-0 absolute left-[0px] right-0 bg-[#191919] flex items-center flex-col top-[0px] transition-opacity duration-75 hover:opacity-100">
+            <div className="opacity-0 absolute left-[0px] right-0 bg-[#191919] flex items-center flex-col top-[0px] transition-opacity duration-75 hover:opacity-100">
               <div>10 words</div>
               <div>177.99 wpm</div>
               <div>177.99 raw</div>
@@ -110,12 +113,12 @@ const Portfolio = () => {
           </div>
           
           <div className="stats relative">
-          <div class="w-[100px] h-[100%] flex flex-col items-center justify-center ">
-              <div class="opacity-40 font-[300]">25 words</div>
-              <div class="text-[50px] font-[500]">144</div>
-              <div class="text-[30px] opacity-75">96%</div>
+          <div className="w-[100px] h-[100%] flex flex-col items-center justify-center ">
+              <div className="opacity-40 font-[300]">25 words</div>
+              <div className="text-[50px] font-[500]">144</div>
+              <div className="text-[30px] opacity-75">96%</div>
             </div>
-            <div class="opacity-0 absolute left-[0px] right-0 bg-[#191919] flex items-center flex-col top-[0px] transition-opacity duration-75 hover:opacity-100">
+            <div className="opacity-0 absolute left-[0px] right-0 bg-[#191919] flex items-center flex-col top-[0px] transition-opacity duration-75 hover:opacity-100">
               <div>25 words</div>
               <div>144.22 wpm</div>
               <div>152.29 raw</div>
@@ -126,12 +129,12 @@ const Portfolio = () => {
           </div>
           
           <div className="stats relative">
-          <div class="w-[100px] h-[100%] flex flex-col items-center justify-center ">
-              <div class="opacity-40 font-[300]">50 words</div>
-              <div class="text-[50px] font-[500]">138</div>
-              <div class="text-[30px] opacity-75">98%</div>
+          <div className="w-[100px] h-[100%] flex flex-col items-center justify-center ">
+              <div className="opacity-40 font-[300]">50 words</div>
+              <div className="text-[50px] font-[500]">138</div>
+              <div className="text-[30px] opacity-75">98%</div>
             </div>
-            <div class="opacity-0 absolute left-[0px] right-0 bg-[#191919] flex items-center flex-col top-[0px] transition-opacity duration-75 hover:opacity-100">
+            <div className="opacity-0 absolute left-[0px] right-0 bg-[#191919] flex items-center flex-col top-[0px] transition-opacity duration-75 hover:opacity-100">
               <div>50 words</div>
               <div>138.63 wpm</div>
               <div>140.12 raw</div>
@@ -142,12 +145,12 @@ const Portfolio = () => {
           </div>
           
           <div className="stats relative">
-          <div class="w-[100px] h-[100%] flex flex-col items-center justify-center ">
-              <div class="opacity-40 font-[300]">100 words</div>
-              <div class="text-[50px] font-[500]">127</div>
-              <div class="text-[30px] opacity-75">94%</div>
+          <div className="w-[100px] h-[100%] flex flex-col items-center justify-center ">
+              <div className="opacity-40 font-[300]">100 words</div>
+              <div className="text-[50px] font-[500]">127</div>
+              <div className="text-[30px] opacity-75">94%</div>
             </div>
-            <div class="opacity-0 absolute left-[0px] right-0 bg-[#191919] flex items-center flex-col top-[0px] transition-opacity duration-75 hover:opacity-100">
+            <div className="opacity-0 absolute left-[0px] right-0 bg-[#191919] flex items-center flex-col top-[0px] transition-opacity duration-75 hover:opacity-100">
               <div>100 words</div>
               <div>127.55 wpm</div>
               <div>130.12 raw</div>

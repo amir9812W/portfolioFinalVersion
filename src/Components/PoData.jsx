@@ -11,11 +11,11 @@ const data1 = [
   },
   {
     id: 2,
-    projectName: "To Do list V2",
+    projectName: "Expense Tracker ",
     link: 'https://todolistversion2.netlify.app/',
     image: './2.png',
     github: 'https://github.com/amir9812W/todolist',
-    describe: 'This is my first React project and it has the same functionality like Todo list version 1 but added some simple features. In this project i learned a lot of usefull react concepts like props , conditional rendering and rendering elements dynamically and so on...',
+    describe: 'As the title says you can track your expenses LOL. In this project i learned a lot of usefull react concepts like props , conditional rendering and rendering elements dynamically and so on...',
     background: 'rgba(60, 179, 113, 0.8)' // Vibrant Medium Sea Green
   },
   {

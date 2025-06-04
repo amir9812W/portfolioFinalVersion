@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import data1 from './PoData';
 import { animate, motion , useInView} from 'framer-motion';
-import { transition } from 'three/examples/jsm/tsl/display/TransitionNode.js';
 
-const SinglePortfolio = ({ image, bg, title, desc , link, git, state}) => {
+const SinglePortfolio = ({ image, bg, title, desc , link, git, state, who}) => {
+
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -53,8 +54,10 @@ const SinglePortfolio = ({ image, bg, title, desc , link, git, state}) => {
        viewport={{ once: false }}
        transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
       className='buttonSec flex w-[550px] items-center justify-center gap-x-[40px] mt-[30px] z-[1000]'>
-        <a href={`${link}`} target='_blank' className='w-[200px] flex justify-center items-center text-[18px] font-[600] rounded-2xl h-[50px] bg-cyan-500 hover:bg-cyan-300 transition-colors duration-500'>{state ? 'download the exe file' : 'Website link'}</a>
-        <a href={`${git}`} target='_blank' className='w-[200px] flex justify-center items-center text-[18px] font-[600] rounded-2xl hover:bg-cyan-300 h-[50px] bg-cyan-500 transition-colors duration-500'>Github</a>
+        <a href={`${link}`} target='_blank' className='w-[200px] flex justify-center items-center text-[18px] font-[600] rounded-2xl h-[50px] bg-cyan-500 hover:bg-cyan-300 transition-colors duration-500'>{who & state? 'Github' : "WebsiteLink" }</a>
+        {!who &&
+          <a href={`${git}`} target='_blank' className='w-[200px] flex justify-center items-center text-[18px] font-[600] rounded-2xl hover:bg-cyan-300 h-[50px] bg-cyan-500 transition-colors duration-500'>Github</a> 
+        }
       </motion.div>
     </motion.div>
   );
@@ -80,6 +83,7 @@ const Portfolio = () => {
         desc={data.describe} 
         title={data.projectName} 
         state = {data.state}
+        who = {data.who}
       />
     ))}
     <div className='containerStats h-[100vh] flex flex-col justify-center items-center gap-y-[40px]' ref={ref}>

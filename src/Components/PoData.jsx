@@ -62,17 +62,18 @@ const data1 = [
     github: 'https://github.com/amir9812W/soundcloudDownloader',
     describe: 'This is a simple soundcloud downloader app that i made using soundcloud API . download the exe file right now for a better demonstration of the project and how it works. ',
     background: 'rgba(0, 255, 255, 0.8)', // Vibrant Cyan 
-    state : true
+    who : true
   },
   {
     id: 9,
     projectName: "List of renders",
     link: 'https://gallery-renders.netlify.app/',
     image: './7.png',
-    github: '',
+    github: 'https://github.com/amir9812W',
     describe: 'Here are my top image renders and animations created using Blender 3.4. Its been a while since I rendered something. 3D modeling and animation are my hobbies, and I would like to do them in my free time, but I havent been able to render anything because I was studying German and programming simultaneously for the past year. I hope you consider hiring me so I can pursue my hobby and join the Blender community in Germany, Since there is none Iran.',
     background: 'rgba(0, 255, 255, 0.8)', // Vibrant Cyan
-    who : true
+    who : true,
+    state : false
   }
   
 ];
